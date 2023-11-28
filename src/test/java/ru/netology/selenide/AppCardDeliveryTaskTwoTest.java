@@ -1,16 +1,13 @@
 package ru.netology.selenide;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.conditions.Text;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AppCardDeliveryTaskTwoTest {
@@ -31,8 +28,6 @@ public class AppCardDeliveryTaskTwoTest {
         }
         String planingDay = generateDate(7, "d");
         $$(".calendar__day").findBy(text(planingDay)).click();
-        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-        //$("[data-test-id='date'] input").setValue(planingDate);
         $("[data-test-id='name'] input").setValue("Петров-Иван Сидорович");
         $("[data-test-id='phone'] input").setValue("+79876543210");
         $("[data-test-id='agreement']").click();
